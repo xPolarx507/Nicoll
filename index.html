@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Valentín</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffb6c1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            flex-direction: column;
+        }
+        h1 {
+            color: white;
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 0;
+        }
+        p {
+            color: white;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+        .button {
+            background-color: #ff66b2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 30px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .button:hover {
+            background-color: #ff3385;
+        }
+        .no-button {
+            background-color: #ff4d94;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center; /* Centra la imagen horizontalmente */
+            margin-top: 20px;
+            width: 100%;
+        }
+        .image-container img {
+            width: 50%;
+            max-width: 300px;
+            display: none;
+        }
+        .text-container {
+            color: white;
+            font-size: 1.5em;
+            display: none; /* Inicialmente oculto */
+            margin-top: 20px;
+        }
+        .final-image {
+            margin-top: 20px;
+            display: none; /* Inicialmente oculto */
+        }
+        .footer{
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: #ff66b2;
+            color: white;
+            padding: 10px 0;
+            font-size: 1em;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h1>Oye Nicoll <br>¿Quieres ser mi San Valentín? <br>❤️</h1>
+        <p>¡Haz clic en uno de los botones! <br>y me muestras tú respuesta</p>
+        <button class="button yes-button" onclick="mostrarRespuesta('si')">Sí</button>
+        <button class="button no-button" onclick="agrandarBoton()">No</button>
+    </div>
+
+    <div class="image-container" id="image-container">
+        <img src="perrito.jpg" alt="Imagen de San Valentín" id="valentin-image">
+    </div>
+
+    <div class="text-container" id="text-container">
+        <p>¿Segura? <br>jajaj</p>
+    </div>
+
+    <div class="final-image" id="final-image">
+        <img src="mocha9final.gif" alt="Imagen Final de Aceptación">
+    </div>
+
+    <div class="footer">©Todos los derechos reservados por mi novia Nicoll</div>
+
+    <script>
+        let tamañoBoton = 1.1;  // Tamaño inicial del botón "Sí"
+
+        function agrandarBoton() {
+            tamañoBoton += 0.1; // Incrementa el tamaño del botón
+            document.querySelector('.yes-button').style.transform = `scale(${tamañoBoton})`;
+
+            // Muestra la imagen y el texto cuando se presiona "No"
+            document.getElementById('valentin-image').style.display = 'block';
+            document.getElementById('text-container').style.display = 'block';
+        }
+
+        function mostrarRespuesta(respuesta) {
+            if (respuesta === 'si') {
+                // Eliminar todo el contenido anterior (incluyendo la imagen y el texto)
+                document.getElementById('content').innerHTML = '';
+
+                // Mostrar el nuevo mensaje
+                const nuevoMensaje = document.createElement('div');
+                nuevoMensaje.innerHTML = '<h1>Sabía que aceptarías mami🤭<br>Te Quiero Mucho</h1>';
+                document.body.appendChild(nuevoMensaje);
+
+                // Eliminar la imagen de San Valentín
+                document.getElementById('valentin-image').style.display = 'none';
+
+                // Eliminar el texto
+                document.getElementById('text-container').style.display = 'none';
+
+                // Mostrar la nueva imagen final debajo del mensaje
+                document.getElementById('final-image').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

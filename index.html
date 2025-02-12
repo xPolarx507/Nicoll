@@ -16,6 +16,7 @@
             height: 100vh;
             text-align: center;
             flex-direction: column;
+            position: relative; /* Necesario para el texto en marca de agua */
         }
         h1 {
             color: white;
@@ -76,10 +77,28 @@
             padding: 10px 0;
             font-size: 1em;
         }
+
+        /* Estilo para la marca de agua */
+        .watermark {
+            position: absolute;
+            top: 50%; /* Centra verticalmente */
+            left: 50%; /* Centra horizontalmente */
+            transform: translate(-50%, -50%); /* Ajusta el posicionamiento */
+            font-size: 7em; /* Tamaño grande del texto */
+            color: rgba(255, 255, 255, 0.15); /* Blanco transparente */
+            pointer-events: none; /* Asegura que no interfiera con otros elementos */
+            z-index: -1; /* Coloca el texto detrás del contenido */
+            font-weight: bold;
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase; /* Opcional: para que se vea en mayúsculas */
+        }
         
     </style>
 </head>
 <body>
+    <!-- Marca de agua -->
+    <div class="watermark">Polar</div>
+
     <div id="content">
         <h1>Oye Nicoll <br>¿Quieres ser mi San Valentín? <br>❤️</h1>
         <p>¡Haz clic en uno de los botones! <br>y me muestras tú respuesta</p>

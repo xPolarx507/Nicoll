@@ -24,6 +24,12 @@
             font-weight: bold;
             margin: 0;
         }
+        h3 {
+            color: rgb(255, 0, 157);
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0;
+        }        
         p {
             color: white;
             font-size: 1.2em;
@@ -93,6 +99,40 @@
             text-transform: uppercase; /* Opcional: para que se vea en mayúsculas */
         }
         
+        /* Estilo para el enlace tipo botón */
+        a.button {
+            background-color: #ff66b2;
+            color: white;
+            text-decoration: none; /* Para quitar el subrayado */
+            padding: 10px 20px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 5px;
+            display: inline-block;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        a.button:hover {
+            background-color: #ff3385;
+        }
+        /* Estilo para el enlace tipo botón */
+        a.button {
+            background-color: #ff66b2;
+            color: white;
+            text-decoration: none; /* Para quitar el subrayado */
+            padding: 10px 20px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 5px;
+            display: inline-block;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        a.button:hover {
+            background-color: #ff3385;
+        }        
     </style>
 </head>
 <body>
@@ -139,7 +179,14 @@
 
                 // Mostrar el nuevo mensaje
                 const nuevoMensaje = document.createElement('div');
-                nuevoMensaje.innerHTML = '<h1>Sabía que aceptarías mami🤭<br>Te Quiero Mucho</h1>';
+                nuevoMensaje.innerHTML = `
+                    <h1>Sabía que aceptarías mami🤭<br>Te Quiero Mucho <br>
+                        <h3>Ahora si puedo mostrarte mi detalle</h3><br>
+                    <a href="https://drive.google.com/file/d/1z1FZ5RL48gb3Um2alsEiU--FSYW90QCn/view?usp=sharing" 
+                       class="button" target="_blank">Ver Detalle 1(PDF)</a>
+                    <a href="https://www.canva.com/design/DAGeX4rExKY/ZH6jTMzetEYCHXU2gLgA6A/edit?utm_content=DAGeX4rExKY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" 
+                       class="button" target="_blank">Ver Detalle(animado)</a>                       
+                `;
                 document.body.appendChild(nuevoMensaje);
 
                 // Eliminar la imagen de San Valentín
